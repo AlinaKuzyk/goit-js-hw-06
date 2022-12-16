@@ -7,17 +7,32 @@
 // Для добавления стилей, используй CSS - классы valid и invalid, которые мы уже
 // добавили в исходные файлы задания.
 
-const inputEl = document.querySelector("input[data-length]");
-const cssClassEl = document.querySelector("#validation-input");
-console.log(inputEl.dataset.length);
+// const inputEl = document.querySelector("input[data-length]");
+// const cssClassEl = document.querySelector("#validation-input");
+// console.log(inputEl.dataset.length);
+
+// const handleInputBlur = (event) => {
+//   if (event.currentTarget.value.length > inputEl.dataset.length) {
+//     cssClassEl.classList.add(`invalid`);
+//     cssClassEl.classList.remove(`valid`);
+//   } else {
+//     cssClassEl.classList.remove(`invalid`);
+//     cssClassEl.classList.add(`valid`);
+//   }
+// };
+
+// inputEl.addEventListener("blur", handleInputBlur);
+
+const inputEl = document.querySelector("#validation-input");
+const lengthInput = inputEl.getAttribute("data-length");
 
 const handleInputBlur = (event) => {
-  if (event.currentTarget.value.length > inputEl.dataset.length) {
-    cssClassEl.classList.add(`invalid`);
-    cssClassEl.classList.remove(`valid`);
+  if (Number(event.currentTarget.value.length) === Number(lengthInput)) {
+    inputEl.classList.add(`valid`);
+    inputEl.classList.remove(`invalid`);
   } else {
-    cssClassEl.classList.remove(`invalid`);
-    cssClassEl.classList.add(`valid`);
+    inputEl.classList.remove(`valid`);
+    inputEl.classList.add(`invalid`);
   }
 };
 

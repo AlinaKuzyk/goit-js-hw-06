@@ -8,12 +8,11 @@
 
 const btnChangeColorEl = document.querySelector(".change-color");
 const spanTextEl = document.querySelector(".color");
-const divEl = document.querySelector(".widget");
 
 const handleChangeBgC = (event) => {
-  document.body.style.backgroundColor = getRandomHexColor();
-  spanTextEl.textContent = getRandomHexColor();
-  console.log(colorName);
+  let color = getRandomHexColor();
+  document.body.style.backgroundColor = color;
+  spanTextEl.textContent = color;
 };
 
 btnChangeColorEl.addEventListener("click", handleChangeBgC);

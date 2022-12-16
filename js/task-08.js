@@ -23,21 +23,22 @@
 // методом reset.
 
 const formEl = document.querySelector(".login-form");
-const inputEls = document.querySelectorAll("input");
+const mailInputEl = document.getElementsByTagName("input")[0];
+const passwordInputEl = document.getElementsByTagName("input")[1];
 
 const handleFormSend = (event) => {
   event.preventDefault();
 
-  const formData = new FormData(event.currentTarget);
-
-  formData.forEach((value, name) => {
-    if (name === "" || value === "") {
-      alert("Bсе поля должны быть заполнены");
-    } else {
-      console.log("name", name);
-      console.log("value", value);
-    }
-  });
+  if (mailInputEl.value === "" || passwordInputEl.value === "") {
+    alert(`Все поля должны быть заполнены`);
+  } else {
+    const dataInfoEls = event.currentTarget.elements;
+    const dataInfo = {
+      email: dataInfoEls.email.value,
+      password: dataInfoEls.password.value,
+    };
+    console.log(dataInfo);
+  }
   event.target.reset();
 };
 
